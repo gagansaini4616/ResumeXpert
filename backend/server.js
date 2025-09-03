@@ -4,7 +4,7 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { connectDB } from './config/db.js';  // ← use named import here
+import { connectDB } from './config/db.js';  
 import authRoutes from './routes/authRoutes.js';
 import resumeRoutes from './routes/resumeRoutes.js';
 
@@ -32,10 +32,11 @@ app.use(
   '/uploads',
   express.static(path.join(__dirname, 'uploads'), {
     setHeaders: (res, _path) => {
-      res.set('Access-Control-Allow-Origin', 'http://localhost:5173/');
+      res.set('Access-Control-Allow-Origin', 'https://resume-xpert-eta.vercel.app');
     },
   })
 );
+
 
 // API Root Route
 app.get('/', (req, res) => {
